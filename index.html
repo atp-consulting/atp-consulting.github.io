@@ -1,10 +1,101 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ATP Consulting</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      line-height: 1.6;
+      background: #f8f9fa;
+      color: #333;
+    }
+    header {
+      background: #003366;
+      color: #fff;
+      padding: 1.5rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+    }
+    header p {
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+    }
+    section {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    h2 {
+      color: #003366;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 0.5rem;
+    }
+    footer {
+      background: #003366;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+    .services, .industries {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+    .card {
+      background: white;
+      padding: 1rem;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+  </style>
 </head>
 <body>
-  <h1>Welcome to ATP Consulting</h1>
-  <p>Process & Process Control Optimization Experts</p>
+  <header>
+    <h1>ATP Consulting</h1>
+    <p>Process & Process Control Optimization Experts</p>
+  </header>
+
+  <section>
+    <h2>About Us</h2>
+    <p>
+      ATP Consulting is dedicated to improving industrial process performance through control system optimization, efficiency audits, and digital transformation consulting. Our team brings engineering precision to every engagement.
+    </p>
+  </section>
+
+  <section>
+    <h2>Our Services</h2>
+    <div class="services">
+      <div class="card">Advanced Process Control Tuning</div>
+      <div class="card">Control System Migration</div>
+      <div class="card">Instrumentation Audits</div>
+      <div class="card">Digital Twin & Simulation</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Industries We Serve</h2>
+    <div class="industries">
+      <div class="card">Oil & Gas</div>
+      <div class="card">Petrochemicals</div>
+      <div class="card">Utilities</div>
+      <div class="card">Manufacturing</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:info@atpconsulting.com">info@atpconsulting.com</a></p>
+  </section>
+
+  <footer>
+    &copy; 2025 ATP Consulting. All rights reserved.
+  </footer>
 </body>
 </html>
