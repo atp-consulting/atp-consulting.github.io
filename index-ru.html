@@ -1,102 +1,255 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+      }
+
+      function setCookie(name, value, days) {
+        let expires = "";
+        if (days) {
+          const date = new Date();
+          date.setTime(date.getTime() + (days*24*60*60*1000));
+          expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+      }
+
+      const userLang = navigator.language || navigator.userLanguage;
+      const langPref = getCookie('langPref');
+
+      if (!langPref) {
+        if (userLang.startsWith('ru')) {
+          setCookie('langPref', 'ru', 30);
+          window.location.href = 'index-ru.html';
+        } else if (userLang.startsWith('kk')) {
+          setCookie('langPref', 'kk', 30);
+          window.location.href = 'index-kz.html';
+        }
+      }
+    });
+  </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ATP Consulting</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body { margin: 0; font-family: 'Poppins', sans-serif; background: #f8f9fa; color: #333; line-height: 1.6; scroll-behavior: smooth; }
-    .language-bar { background: #f1f1f1; text-align: right; padding: 0.5rem 1rem; font-size: 0.9rem; }
-    .language-bar a { text-decoration: none; margin: 0 0.5rem; color: #003366; font-weight: 600; }
-    nav { background: #003366; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
-    nav a { color: #fff; text-decoration: none; margin: 0 1rem; font-weight: 600; }
-    nav a:hover { text-decoration: underline; }
-    header { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; padding: 2rem 2rem; background: #003366; color: #fff; min-height: 50vh; }
-    .hero-text { flex: 1 1 45%; padding: 1rem; animation: fadeIn 2s ease-in-out; }
-    .hero-text h1 { font-size: 2rem; margin-bottom: 1rem; }
-    .hero-text p { font-size: 1.1rem; margin-bottom: 1.5rem; }
-    .hero-image { flex: 1 1 45%; text-align: center; padding: 1rem; }
-    .hero-image img { max-width: 70%; height: auto; border-radius: 8px; animation: fadeIn 3s ease-in-out; }
-    section { padding: 4rem 2rem; max-width: 1000px; margin: auto; animation: slideUp 1.5s ease-in-out; }
-    h2 { text-align: center; color: #003366; margin-bottom: 2rem; }
-    .services, .industries { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; margin-top: 2rem; }
-    .card { background: #fff; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center; transition: transform 0.3s; }
-    .card:hover { transform: translateY(-8px); }
-    .contact { text-align: center; }
-    .contact a { color: #003366; font-weight: 600; text-decoration: none; }
-    .contact a:hover { text-decoration: underline; }
-    footer { background: #003366; color: #fff; text-align: center; padding: 2rem; margin-top: 3rem; }
-    @keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
-    @keyframes slideUp { 0% { transform: translateY(50px); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
-    @media (max-width: 768px) { header { flex-direction: column; text-align: center; } .hero-text, .hero-image { flex: 1 1 100%; padding: 0; } .hero-text { margin-bottom: 2rem; } .hero-image img { max-width: 60%; } }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    .language-bar {
+      background: #f1f1f1;
+      text-align: right;
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+    }
+    .language-bar a {
+      text-decoration: none;
+      margin: 0 0.5rem;
+      color: #003366;
+      font-weight: 600;
+    }
+    nav {
+      background: #003366;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 600;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 2rem;
+      background: #003366;
+      color: #fff;
+      min-height: 50vh;
+    }
+    .hero-text {
+      flex: 1 1 45%;
+      padding: 1rem;
+      animation: fadeIn 2s ease-in-out;
+    }
+    .hero-text h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .hero-text p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+    .hero-image {
+      flex: 1 1 45%;
+      text-align: center;
+      padding: 1rem;
+    }
+    .hero-image img {
+      max-width: 70%;
+      height: auto;
+      border-radius: 8px;
+      animation: fadeIn 3s ease-in-out;
+    }
+    section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+      animation: slideUp 1.5s ease-in-out;
+    }
+    h2 {
+      text-align: center;
+      color: #003366;
+      margin-bottom: 2rem;
+    }
+    .services, .industries {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .card {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+    }
+    .contact {
+      text-align: center;
+    }
+    .contact a {
+      color: #003366;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .contact a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      background: #003366;
+      color: #fff;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 3rem;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    @keyframes slideUp {
+      0% { transform: translateY(50px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero-text, .hero-image {
+        flex: 1 1 100%;
+        padding: 0;
+      }
+      .hero-text {
+        margin-bottom: 2rem;
+      }
+      .hero-image img {
+        max-width: 60%;
+      }
+    }
   </style>
 </head>
 <body>
 
 <div class="language-bar">
-  <a href="index.html">🇬🇧 EN</a> |
-  <a href="index-ru.html">🇷🇺 RU</a> |
-  <a href="index-kz.html">🇰🇿 KZ</a>
+  <a href="index.html" onclick="document.cookie='langPref=en; path=/;';">🇬🇧 EN</a> |
+  <a href="index-ru.html" onclick="document.cookie='langPref=ru; path=/;';">🇷🇺 RU</a> |
+  <a href="index-kz.html" onclick="document.cookie='langPref=kk; path=/;';">🇰🇿 KZ</a>
 </div>
 
 <nav>
   <div><a href="#top">ATP Consulting</a></div>
   <div>
-    <a href="#about">О нас</a>
-    <a href="#services">Услуги</a>
-    <a href="#industries">Отрасли</a>
-    <a href="#contact">Контакты</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#industries">Industries</a>
+    <a href="#contact">Contact</a>
   </div>
 </nav>
 
 <header id="top">
   <div class="hero-text">
-    <h1>Увеличьте производительность вашего завода до 5%</h1>
-    <p>Мы поможем оптимизировать работу оборудования и стратегии управления для увеличения прибыли, надежности и снижения выбросов.</p>
+    <h1>Increase capacity of your plant by up to 5%</h1>
+    <p>We will help you to optimize equipment operation and control strategies, to increase your profit, reliability and reduce emissions.</p>
   </div>
   <div class="hero-image">
-    <img src="joshua-sun-5OIaZyOiN7E-unsplash.jpg" alt="Оптимизация Завода">
+    <img src="joshua-sun-5OIaZyOiN7E-unsplash.jpg" alt="Plant Optimization">
   </div>
 </header>
 
 <section id="about">
-  <h2>О нас</h2>
+  <h2>About Us</h2>
   <p style="text-align:center; max-width:700px; margin:auto;">
-    ATP Consulting — команда мирового уровня экспертов в области процессов, управления и приборостроения.
-    Мы обеспечиваем оптимальные условия эксплуатации оборудования, что приводит к стабильной работе, увеличению производства и снижению выбросов.
-    Мы предоставляем консультационные услуги для действующих установок и на стадии проектирования.
+    ATP Consulting is a team of world class experts in process, process control, and instrumentation engineering. 
+    We ensure that equipment is operated in optimal conditions. This leads to stable operation, increased production, and reduced emissions.
+    We provide consulting services for operating units and during the engineering stage.
+    Our team brings engineering precision to every engagement.
   </p>
 </section>
 
 <section id="services">
-  <h2>Наши услуги</h2>
+  <h2>Our Services</h2>
   <div class="services">
-    <div class="card">Оптимизация работы колонн</div>
-    <div class="card">Эксплуатация установок SRU</div>
-    <div class="card">Оптимизация систем управления</div>
-    <div class="card">Аудит контрольно-измерительных приборов</div>
+    <div class="card">Column Operation</div>
+    <div class="card">SRU Unit Operation</div>
+    <div class="card">Control System Optimization</div>
+    <div class="card">Instrumentation Audits</div>
   </div>
 </section>
 
 <section id="industries">
-  <h2>Отрасли</h2>
+  <h2>Industries We Serve</h2>
   <div class="industries">
-    <div class="card">Нефть и газ</div>
-    <div class="card">Нефтехимия</div>
-    <div class="card">Энергетика и коммунальные услуги</div>
+    <div class="card">Oil & Gas</div>
+    <div class="card">Petrochemicals</div>
+    <div class="card">Utilities</div>
   </div>
 </section>
 
 <section id="contact">
-  <h2>Контакты</h2>
+  <h2>Contact</h2>
   <div class="contact">
     <p>Email: <a href="mailto:info@atpconsulting.com">info@atpconsulting.com</a></p>
   </div>
 </section>
 
 <footer>
-  &copy; 2025 ATP Consulting. Все права защищены.
+  &copy; 2025 ATP Consulting. All rights reserved.
 </footer>
 
 </body>
