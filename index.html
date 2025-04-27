@@ -1,6 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+      }
+
+      function setCookie(name, value, days) {
+        let expires = "";
+        if (days) {
+          const date = new Date();
+          date.setTime(date.getTime() + (days*24*60*60*1000));
+          expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+      }
+
+      const userLang = navigator.language || navigator.userLanguage;
+      const langPref = getCookie('langPref');
+
+      if (!langPref) {
+        if (userLang.startsWith('ru')) {
+          setCookie('langPref', 'ru', 30);
+          window.location.href = 'index-ru.html';
+        } else if (userLang.startsWith('kk')) {
+          setCookie('langPref', 'kk', 30);
+          window.location.href = 'index-kz.html';
+        }
+      }
+    });
+  </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ATP Consulting</title>
@@ -154,9 +187,9 @@
 <body>
 
 <div class="language-bar">
-  <a href="index.html"> EN</a> |
-  <a href="index-ru.html"> RU</a> |
-  <a href="index-kz.html"> KZ</a>
+  <a href="index.html" onclick="document.cookie='langPref=en; path=/;';">🇬🇧 EN</a> |
+  <a href="index-ru.html" onclick="document.cookie='langPref=ru; path=/;';">🇷🇺 RU</a> |
+  <a href="index-kz.html" onclick="document.cookie='langPref=kk; path=/;';">🇰🇿 KZ</a>
 </div>
 
 <nav>
