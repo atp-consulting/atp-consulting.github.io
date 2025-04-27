@@ -34,24 +34,36 @@
       text-decoration: underline;
     }
     header {
-      background: url('joshua-sun-5OIaZyOiN7E-unsplash.jpg') center/cover no-repeat;
-      height: 90vh;
-      color: #fff;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
+      flex-wrap: wrap;
       align-items: center;
-      text-align: center;
-      padding: 2rem;
+      justify-content: space-between;
+      padding: 4rem 2rem;
+      background: #003366;
+      color: #fff;
+      min-height: 90vh;
     }
-    header h1 {
-      font-size: 3rem;
-      margin: 0;
+    .hero-text {
+      flex: 1 1 50%;
+      padding-right: 2rem;
       animation: fadeIn 2s ease-in-out;
     }
-    header p {
-      font-size: 1.3rem;
-      margin-top: 1rem;
+    .hero-text h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .hero-text p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    .hero-image {
+      flex: 1 1 50%;
+      text-align: center;
+    }
+    .hero-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
       animation: fadeIn 3s ease-in-out;
     }
     section {
@@ -108,12 +120,17 @@
       0% { transform: translateY(50px); opacity: 0; }
       100% { transform: translateY(0); opacity: 1; }
     }
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      nav {
+    @media (max-width: 768px) {
+      header {
         flex-direction: column;
+        text-align: center;
+      }
+      .hero-text, .hero-image {
+        flex: 1 1 100%;
+        padding: 0;
+      }
+      .hero-text {
+        margin-bottom: 2rem;
       }
     }
   </style>
@@ -131,8 +148,13 @@
 </nav>
 
 <header id="top">
-  <h1>ATP Consulting</h1>
-  <p>Process & Process Control Optimization Experts</p>
+  <div class="hero-text">
+    <h1>Increase capacity of your plant by up to 5%</h1>
+    <p>We will help you to optimize equipment operation and control strategies, to increase your profit, reliability and reduce emissions.</p>
+  </div>
+  <div class="hero-image">
+    <img src="joshua-sun-5OIaZyOiN7E-unsplash.jpg" alt="Plant Optimization">
+  </div>
 </header>
 
 <section id="about">
