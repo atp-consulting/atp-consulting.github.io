@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ATP Consulting</title>
+
+  <!-- SEO and Social Metadata -->
   <meta name="description" content="ATP Consulting – Experts in process, control, and instrumentation engineering. We help optimize plant performance and reduce OPEX and emissions.">
   <meta name="keywords" content="process optimization, control systems, instrumentation audits, oil and gas consulting, petrochemical engineering">
   <meta name="author" content="ATP Consulting">
@@ -12,9 +14,9 @@
   <meta property="og:image" content="https://atp-consulting.github.io/preview.jpg">
   <meta property="og:url" content="https://atp-consulting.github.io">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
   <style>
     body {
       margin: 0;
@@ -112,26 +114,29 @@
       border-radius: 8px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       text-align: center;
-      transition: transform 0.3s;
-      cursor: pointer;
+      transition: transform 0.3s ease;
+      cursor: default;
     }
     .card:hover {
-      transform: translateY(-8px);
+      transform: translateY(-6px);
     }
     .card-title {
       font-weight: 600;
       font-size: 1.1rem;
     }
     .card .details {
-      display: none;
-      margin-top: 1rem;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.4s ease, opacity 0.3s ease;
+      margin-top: 0.5rem;
       font-size: 0.9rem;
-      color: #555;
       text-align: left;
-      animation: fadeIn 0.5s ease-in-out;
+      color: #555;
     }
-    .card.expanded .details {
-      display: block;
+    .card:hover .details {
+      max-height: 300px;
+      opacity: 1;
     }
     .contact {
       text-align: center;
@@ -208,10 +213,6 @@
         }
       }
     });
-
-    function toggleDetails(card) {
-      card.classList.toggle('expanded');
-    }
   </script>
 </head>
 
@@ -256,19 +257,19 @@
 <section id="services">
   <h2>Our Services</h2>
   <div class="services">
-    <div class="card" onclick="toggleDetails(this)">
+    <div class="card">
       <div class="card-title">Column Operation</div>
       <div class="details">Optimize crude stabilization and fractionation column operation to improve separation efficiency and reduce energy consumption.</div>
     </div>
-    <div class="card" onclick="toggleDetails(this)">
+    <div class="card">
       <div class="card-title">SRU Unit Operation</div>
       <div class="details">Ensure safe and reliable startup of SRU burners through improved operating procedures and combustion control strategies.</div>
     </div>
-    <div class="card" onclick="toggleDetails(this)">
+    <div class="card">
       <div class="card-title">Control System Optimization</div>
       <div class="details">Tune regulatory control loops for stability and performance. Implement Advanced Process Control (APC) for throughput and energy optimization.</div>
     </div>
-    <div class="card" onclick="toggleDetails(this)">
+    <div class="card">
       <div class="card-title">Instrumentation Audits</div>
       <div class="details">Review and assess instrument installations to ensure they are fit for purpose. Identify issues with calibration, location, or technology mismatch.</div>
     </div>
