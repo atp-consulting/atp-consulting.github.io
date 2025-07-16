@@ -124,20 +124,27 @@
       font-weight: 600;
       font-size: 1.1rem;
     }
-    .card .details {
-      max-height: 0;
-      overflow: hidden;
-      opacity: 0;
-      transition: max-height 0.4s ease, opacity 0.3s ease;
-      margin-top: 0.5rem;
-      font-size: 0.9rem;
-      text-align: left;
-      color: #555;
-    }
-    .card:hover .details {
-      max-height: 300px;
-      opacity: 1;
-    }
+    .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: auto;
+}
+
+.card .details {
+  opacity: 0;
+  height: 0;
+  transition: opacity 0.3s ease;
+  visibility: hidden;
+  overflow: hidden;
+}
+
+.card:hover .details {
+  opacity: 1;
+  height: auto;
+  visibility: visible;
+}
+
     .contact {
       text-align: center;
     }
