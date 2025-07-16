@@ -101,12 +101,15 @@
       margin-bottom: 2rem;
     }
     .services, .industries {
-      display: flex;
+      display: inline-flex;
       gap: 2rem;
-      margin-top: 2rem;
+      flex-wrap: nowrap;
       justify-content: center;
+      overflow-x: auto; /* optional horizontal scroll for smaller screens */
+      width: 100%;
     }
     .card {
+      flex: 0 0 220px;
       width: 220px;
       background: #fff;
       padding: 1.5rem;
