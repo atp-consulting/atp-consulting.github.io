@@ -26,21 +26,18 @@
       line-height: 1.6;
       scroll-behavior: smooth;
     }
-
     .language-bar {
       background: #f1f1f1;
       text-align: right;
       padding: 0.5rem 1rem;
       font-size: 0.9rem;
     }
-
     .language-bar a {
       text-decoration: none;
       margin: 0 0.5rem;
       color: #003366;
       font-weight: 600;
     }
-
     nav {
       background: #003366;
       padding: 1rem 2rem;
@@ -51,18 +48,15 @@
       top: 0;
       z-index: 1000;
     }
-
     nav a {
       color: #fff;
       text-decoration: none;
       margin: 0 1rem;
       font-weight: 600;
     }
-
     nav a:hover {
       text-decoration: underline;
     }
-
     header {
       display: flex;
       flex-wrap: wrap;
@@ -73,56 +67,47 @@
       color: #fff;
       min-height: 50vh;
     }
-
     .hero-text {
       flex: 1 1 45%;
       padding: 1rem;
       animation: fadeIn 2s ease-in-out;
     }
-
     .hero-text h1 {
       font-size: 2rem;
       margin-bottom: 1rem;
     }
-
     .hero-text p {
       font-size: 1.1rem;
       margin-bottom: 1.5rem;
     }
-
     .hero-image {
       flex: 1 1 45%;
       text-align: center;
       padding: 1rem;
     }
-
     .hero-image img {
       max-width: 70%;
       height: auto;
       border-radius: 8px;
       animation: fadeIn 3s ease-in-out;
     }
-
     section {
       padding: 4rem 2rem;
       max-width: 1000px;
       margin: auto;
       animation: slideUp 1.5s ease-in-out;
     }
-
     h2 {
       text-align: center;
       color: #003366;
       margin-bottom: 2rem;
     }
-
     .services, .industries {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 2rem;
       margin-top: 2rem;
     }
-
     .card {
       background: #fff;
       padding: 1.5rem;
@@ -130,44 +115,40 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       text-align: center;
       transition: transform 0.3s ease;
-      cursor: pointer;
+      cursor: default;
     }
-
     .card:hover {
       transform: translateY(-6px);
     }
-
     .card-title {
       font-weight: 600;
       font-size: 1.1rem;
     }
-
     .card .details {
-      display: none;
-      margin-top: 1rem;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.4s ease, opacity 0.3s ease;
+      margin-top: 0.5rem;
       font-size: 0.9rem;
-      color: #555;
       text-align: left;
+      color: #555;
     }
-
-    .card.expanded .details {
-      display: block;
+    .card:hover .details {
+      max-height: 300px;
+      opacity: 1;
     }
-
     .contact {
       text-align: center;
     }
-
     .contact a {
       color: #003366;
       font-weight: 600;
       text-decoration: none;
     }
-
     .contact a:hover {
       text-decoration: underline;
     }
-
     footer {
       background: #003366;
       color: #fff;
@@ -175,32 +156,26 @@
       padding: 2rem;
       margin-top: 3rem;
     }
-
     @keyframes fadeIn {
       0% { opacity: 0; }
       100% { opacity: 1; }
     }
-
     @keyframes slideUp {
       0% { transform: translateY(50px); opacity: 0; }
       100% { transform: translateY(0); opacity: 1; }
     }
-
     @media (max-width: 768px) {
       header {
         flex-direction: column;
         text-align: center;
       }
-
       .hero-text, .hero-image {
         flex: 1 1 100%;
         padding: 0;
       }
-
       .hero-text {
         margin-bottom: 2rem;
       }
-
       .hero-image img {
         max-width: 60%;
       }
@@ -238,10 +213,6 @@
         }
       }
     });
-
-    function toggleCard(card) {
-      card.classList.toggle('expanded');
-    }
   </script>
 </head>
 
@@ -286,19 +257,19 @@
 <section id="services">
   <h2>Our Services</h2>
   <div class="services">
-    <div class="card" onclick="toggleCard(this)">
+    <div class="card">
       <div class="card-title">Column Operation</div>
       <div class="details">Optimize crude stabilization and fractionation column operation to improve separation efficiency and reduce energy consumption.</div>
     </div>
-    <div class="card" onclick="toggleCard(this)">
+    <div class="card">
       <div class="card-title">SRU Unit Operation</div>
       <div class="details">Ensure safe and reliable startup of SRU burners through improved operating procedures and combustion control strategies.</div>
     </div>
-    <div class="card" onclick="toggleCard(this)">
+    <div class="card">
       <div class="card-title">Control System Optimization</div>
       <div class="details">Tune regulatory control loops for stability and performance. Implement Advanced Process Control (APC) for throughput and energy optimization.</div>
     </div>
-    <div class="card" onclick="toggleCard(this)">
+    <div class="card">
       <div class="card-title">Instrumentation Audits</div>
       <div class="details">Review and assess instrument installations to ensure they are fit for purpose. Identify issues with calibration, location, or technology mismatch.</div>
     </div>
