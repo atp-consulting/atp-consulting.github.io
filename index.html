@@ -1,20 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+      }
+
+      function setCookie(name, value, days) {
+        let expires = "";
+        if (days) {
+          const date = new Date();
+          date.setTime(date.getTime() + (days*24*60*60*1000));
+          expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+      }
+
+      const userLang = navigator.language || navigator.userLanguage;
+      const langPref = getCookie('langPref');
+
+      if (!langPref) {
+        if (userLang.startsWith('ru')) {
+          setCookie('langPref', 'ru', 30);
+          window.location.href = 'index-ru.html';
+        } else if (userLang.startsWith('kk')) {
+          setCookie('langPref', 'kk', 30);
+          window.location.href = 'index-kz.html';
+        }
+      }
+    });
+  </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ATP Consulting</title>
-  <meta name="description" content="ATP Consulting – Experts in process, control, and instrumentation engineering. We help optimize plant performance and reduce OPEX and emissions.">
-  <meta name="keywords" content="process optimization, control systems, instrumentation audits, oil and gas consulting, petrochemical engineering">
-  <meta name="author" content="ATP Consulting">
-  <meta property="og:title" content="ATP Consulting">
-  <meta property="og:description" content="Boost production and cut OPEX with ATP Consulting’s expert engineers.">
-  <meta property="og:image" content="https://atp-consulting.github.io/preview.jpg">
-  <meta property="og:url" content="https://atp-consulting.github.io">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  
   <style>
     body {
       margin: 0;
@@ -101,41 +124,21 @@
       margin-bottom: 2rem;
     }
     .services, .industries {
-      display: inline-flex;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 2rem;
-      flex-wrap: nowrap;
-      justify-content: center;
-      overflow-x: auto; /* optional horizontal scroll for smaller screens */
-      width: 100%;
+      margin-top: 2rem;
     }
     .card {
-      flex: 0 0 220px;
-      width: 220px;
       background: #fff;
       padding: 1.5rem;
       border-radius: 8px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       text-align: center;
       transition: transform 0.3s;
-      cursor: pointer;
     }
     .card:hover {
       transform: translateY(-8px);
-    }
-    .card-title {
-      font-weight: 600;
-      font-size: 1.1rem;
-    }
-    .card .details {
-      display: none;
-      margin-top: 1rem;
-      font-size: 0.9rem;
-      color: #555;
-      text-align: left;
-      animation: fadeIn 0.5s ease-in-out;
-    }
-    .card.expanded .details {
-      display: block;
     }
     .contact {
       text-align: center;
@@ -180,51 +183,13 @@
       }
     }
   </style>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      function getCookie(name) {
-        const value = `; ${document.cookie}`;
-        const parts = value.split(`; ${name}=`);
-        if (parts.length === 2) return parts.pop().split(';').shift();
-      }
-
-      function setCookie(name, value, days) {
-        let expires = "";
-        if (days) {
-          const date = new Date();
-          date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-          expires = "; expires=" + date.toUTCString();
-        }
-        document.cookie = name + "=" + (value || "") + expires + "; path=/";
-      }
-
-      const userLang = navigator.language || navigator.userLanguage;
-      const langPref = getCookie('langPref');
-
-      if (!langPref) {
-        if (userLang.startsWith('ru')) {
-          setCookie('langPref', 'ru', 30);
-          window.location.href = 'index-ru.html';
-        } else if (userLang.startsWith('kk')) {
-          setCookie('langPref', 'kk', 30);
-          window.location.href = 'index-kz.html';
-        }
-      }
-    });
-
-    function toggleDetails(card) {
-      card.classList.toggle('expanded');
-    }
-  </script>
 </head>
-
 <body>
 
 <div class="language-bar">
-  <a href="index.html" onclick="setCookie('langPref','en',30)"><img src="flags/gb.png" alt="EN" style="height:16px; vertical-align:middle;"> EN</a> |
-  <a href="index-ru.html" onclick="setCookie('langPref','ru',30)"><img src="flags/ru.png" alt="RU" style="height:16px; vertical-align:middle;"> RU</a> |
-  <a href="index-kz.html" onclick="setCookie('langPref','kk',30)"><img src="flags/kz.png" alt="KZ" style="height:16px; vertical-align:middle;"> KZ</a>
+  <a href="index.html"><img src="flags/gb.png" alt="EN" style="height:16px; vertical-align:middle;"> EN</a> |
+  <a href="index-ru.html"><img src="flags/ru.png" alt="RU" style="height:16px; vertical-align:middle;"> RU</a> |
+  <a href="index-kz.html"><img src="flags/kz.png" alt="KZ" style="height:16px; vertical-align:middle;"> KZ</a>
 </div>
 
 <nav>
@@ -239,11 +204,11 @@
 
 <header id="top">
   <div class="hero-text">
-    <h1>Boost production and cut OPEX with expert engineering</h1>
-    <p>Our specialists have hands-on experience optimizing process units, control loops, and equipment reliability. We help reduce operating costs and emissions — while increasing throughput and stability.</p>
+    <h1>Increase capacity of your plant by up to 5%</h1>
+    <p>We will help you to optimize equipment operation and control strategies, to increase your profit, reliability and reduce emissions.</p>
   </div>
   <div class="hero-image">
-    <img src="joshua-sun-5OIaZyOiN7E-unsplash.jpg" alt="Industrial plant representing process optimization benefits">
+    <img src="joshua-sun-5OIaZyOiN7E-unsplash.jpg" alt="Plant Optimization">
   </div>
 </header>
 
@@ -260,22 +225,10 @@
 <section id="services">
   <h2>Our Services</h2>
   <div class="services">
-    <div class="card" onclick="toggleDetails(this)">
-      <div class="card-title">Column Operation</div>
-      <div class="details">Optimize crude stabilization and fractionation column operation to improve separation efficiency and reduce energy consumption.</div>
-    </div>
-    <div class="card" onclick="toggleDetails(this)">
-      <div class="card-title">SRU Unit Operation</div>
-      <div class="details">Ensure safe and reliable startup of SRU burners through improved operating procedures and combustion control strategies.</div>
-    </div>
-    <div class="card" onclick="toggleDetails(this)">
-      <div class="card-title">Control System Optimization</div>
-      <div class="details">Tune regulatory control loops for stability and performance. Implement Advanced Process Control (APC) for throughput and energy optimization.</div>
-    </div>
-    <div class="card" onclick="toggleDetails(this)">
-      <div class="card-title">Instrumentation Audits</div>
-      <div class="details">Review and assess instrument installations to ensure they are fit for purpose. Identify issues with calibration, location, or technology mismatch.</div>
-    </div>
+    <div class="card">Column Operation</div>
+    <div class="card">SRU Unit Operation</div>
+    <div class="card">Control System Optimization</div>
+    <div class="card">Instrumentation Audits</div>
   </div>
 </section>
 
