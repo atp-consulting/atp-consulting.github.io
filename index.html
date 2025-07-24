@@ -287,27 +287,32 @@
   <h2>Contact</h2>
   <div class="contact">
     <form action="https://formspree.io/f/meozgjvy" method="POST" id="contact-form">
-      <label for="name">Your Name:</label><br>
-      <input type="text" id="name" name="name" required><br><br>
+      <div style="max-width: 400px; margin: auto; text-align: left;">
+        <label for="name">Your Name:</label><br>
+        <input type="text" id="name" name="name" required style="width: 100%; padding: 10px; margin: 8px 0 20px 0; border: 1px solid #ccc; border-radius: 6px;"><br>
 
-      <label for="email">Your Email:</label><br>
-      <input type="email" id="email" name="email" required><br><br>
+        <label for="email">Your Email:</label><br>
+        <input type="email" id="email" name="email" required style="width: 100%; padding: 10px; margin: 8px 0 20px 0; border: 1px solid #ccc; border-radius: 6px;"><br>
 
-      <label for="message">Your Message:</label><br>
-      <textarea id="message" name="message" rows="5" required></textarea><br><br>
+        <label for="message">Your Message:</label><br>
+        <textarea id="message" name="message" rows="5" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; resize: vertical;"></textarea><br><br>
 
-      <!-- Honeypot field (hidden from humans) -->
-      <input type="text" name="_gotcha" style="display:none">
+        <!-- Honeypot -->
+        <input type="text" name="_gotcha" style="display:none">
 
-      <!-- Thank you message container -->
-      <div id="form-status" style="display:none; color: green; font-weight: bold;">
-        Thank you! Your message has been sent.
+        <!-- Thank you message -->
+        <div id="form-status" style="display:none; color: green; font-weight: bold; margin-top: 10px;">
+          Thank you! Your message has been sent.
+        </div>
+
+        <button type="submit" style="padding: 10px 20px; background-color: #003366; color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer;">
+          Send Message
+        </button>
       </div>
-
-      <button type="submit">Send Message</button>
     </form>
   </div>
 </section>
+
 
 <script>
   const form = document.getElementById("contact-form");
