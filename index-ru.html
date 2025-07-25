@@ -1,11 +1,46 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
+  <script>
+  (function() {
+    function getCookie(name) {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) return parts.pop().split(';').shift();
+    }
+
+    function setCookie(name, value, days) {
+      let expires = "";
+      if (days) {
+        const date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+      }
+      document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    }
+
+    const userLang = navigator.language || navigator.userLanguage;
+    const langPref = getCookie('langPref');
+
+    if (!langPref) {
+      if (userLang.startsWith('ru')) {
+        setCookie('langPref', 'ru', 30);
+        window.location.replace('index-ru.html');
+      } else if (userLang.startsWith('kk')) {
+        setCookie('langPref', 'kk', 30);
+        window.location.replace('index-kz.html');
+      }
+    }
+  })();
+</script>
+
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Alatau Tech Consulting</title>
-  <meta name="description" content="Alatau Tech Consulting предоставляет экспертные услуги по процессам, управлению, приборам и цифровой трансформации для нефтегазовой и перерабатывающей промышленности.">
-  <meta name="keywords" content="инженерные услуги, аудит процессов, управление, оптимизация, измерительные приборы, консалтинг, нефть, газ, СЕР, амины, цифровая трансформация, Казахстан, СНГ, Россия, Узбекистан, Азербайджан, Alatau Tech, эксперты">
+  <!-- ✅ SEO Tags -->
+  <meta name="description" content="Alatau Tech Consulting предоставляет экспертные услуги по технологическим процессам, системам управления, приборам и цифровой трансформации в нефтегазовой и перерабатывающей промышленности.">
+  <meta name="keywords" content="инженерные услуги, аудит технологических процессов, управление технологическим процессом, оптимизация производства, измерительные приборы, консалтинг, нефть, газ, сера, аминовая очистка, цифровая трансформация, Казахстан, СНГ, Россия, Узбекистан, Азербайджан, Alatau Tech, эксперты">
   <meta name="author" content="Alatau Tech Consulting">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
@@ -168,6 +203,7 @@
   </a>
 </div>
 
+
 <nav>
   <div><a href="#top">Alatau Tech Consulting</a></div>
   <div>
@@ -180,89 +216,104 @@
 
 <header id="top">
   <div class="hero-text">
-    <h1>Увеличьте производство и снизьте OPEX с помощью инженерных экспертов</h1>
-    <p>Мы оптимизируем технологические блоки, контуры управления и измерительные приборы на основе практического опыта с реальных объектов. Это снижает издержки и выбросы — при этом повышает стабильность и производительность.</p>
+    <h1>Увеличьте производство и снизьте OPEX с помощью технических экспертов</h1>
+    <p>Мы оптимизируем технологические процессы, контуры управления и измерительные приборы на основе практического опыта с реальных объектов. Это снижает издержки производства и выбросы — при этом повышает стабильность и производительность.
+</p>
   </div>
   <div class="hero-image">
-    <img src="joshua-sun-5OIaZyOiN7E-unsplash.jpg" alt="Оптимизация завода">
+    <img src="joshua-sun-5OIaZyOiN7E-unsplash.jpg" alt="Plant Optimization">
   </div>
 </header>
 
 <section id="about">
-  <h2>О нас</h2>
+  <h2>About Us</h2>
   <p style="text-align:center; max-width:700px; margin:auto;">
-    Alatau Tech Consulting — команда мирового уровня с глубокими теоретическими знаниями и практическим опытом. <br><br>
+    Alatau Tech Consulting — эксперты мирового уровня с глубокими теоретическими знаниями и практическим опытом. <br><br>
     Мы поддерживаем как действующие заводы, так и проекты на инженерной стадии — обеспечивая оптимальное проектирование и эксплуатацию оборудования и систем управления. <br><br>
-    Это приводит к стабильной работе, росту выработки, снижению выбросов и снижению затрат. <br><br>
+    Это приводит к стабильной работе, росту выработки, снижению выбросов и снижению эксплуатационных затрат. <br><br>
     Мы обеспечиваем инженерную точность на каждом этапе.
   </p>
 </section>
 
 <section id="services">
   <h2>Наши услуги</h2>
+
   <div class="services">
     <div class="card">
-      <h3>Аудит процессов и устранение узких мест</h3>
-      <p>Мы выявляем ограничения по мощности, потери энергии и неэффективность через целевые аудиты. Опыт в оптимизации колонн, блоков СЕР и аминных установок — с приростом производительности без капитальных затрат.</p>
+      <h3>Аудит технологическиз процессов и устранение узких мест</h3>
+      <p>Мы выявляем ограничения по мощности, потери энергии и неэффективность через целевые аудиты. Команда имеет опыт в оптимизации колонн, установок сери и аминной очистки — улучшая производительность и стабильность эксплуатации.</p>
     </div>
+
     <div class="card">
-      <h3>Оптимизация управления процессом</h3>
-      <p>Настраиваем стратегии управления для снижения колебаний и повышения отклика. Контроль печей, колонн, чувствительных к пульсациям блоков — от ПИД до сложной логики.</p>
+      <h3>Оптимизация управления технологическим процессом</h3>
+      <p>Настраиваем стратегии управления для снижения колебаний и повышения отклика. Контроль печей, колонн, чувствительных к пульсациям блоков. От базового ПИД до сложной логики, мы адаптируем к вашей системе управления и требованиям технологического процесса.</p>
     </div>
+
     <div class="card">
       <h3>Диагностика измерительных приборов</h3>
-      <p>Оцениваем точность, шум сигналов и монтажные ошибки. Решаем проблемы с уровнем, расходом, температурой — обеспечивая точную информацию для системы управления.</p>
+      <p>Оцениваем точность, шум сигналов и монтажные ошибки. Типичные случаи включают ненадёжные измерения уровня или расхода в колоннах, теплообменниках или резервуарных системах. Мы работаем со всеми ключевыми приборами КИП, чтобы система управления действительно «видела» происходящее в процессе.</p>
     </div>
+
     <div class="card">
       <h3>Стратегия цифровой трансформации</h3>
-      <p>Оцениваем готовность данных и формируем реалистичную цифровую дорожную карту. От аналитики до цифровых двойников — без модных слов, только реальные результаты.</p>
+      <p>Оцениваем готовность данных, чтобы разработать практичную цифровую дорожную карту. От аналитики до цифровых двойников — мы помогаем определить, что действительно возможно и полезно. Только реальные результаты, основанные на инженерной практике.</p>
     </div>
   </div>
 </section>
+
 
 <section id="industries">
   <h2>Отрасли, в которых мы работаем</h2>
   <div class="industries">
     <div class="card">
       <h3>Нефть и газ</h3>
-      <p>Поддержка добычи и переработки — от блоков осушки до стабилизаторов и систем извлечения ШФЛУ. Упор на производительность, управление и безопасность.</p>
+      <p>Поддерживаем добывающие и перерабатывающие процессы — включая установки подготовки газа, стабилизаторы и системы извлечения ШФЛУ — с акцентом на производительность, эффективность регулирования и безопасность процесса.</p>
     </div>
+
     <div class="card">
       <h3>Переработка нефти и газа</h3>
-      <p>Опыт с СЕР, аминами, колоннами и вспомогательными блоками. Снижаем энергозатраты, улучшаем устойчивость и эффективность.</p>
+      <p>Наш опыт включает установки сероочистки (SRU), аминовой очистки, ректификационные колонны и вспомогательные системы. Мы помогаем оптимизировать работу установок, повысить стабильность и снизить энергопотребление.</p>
     </div>
+
     <div class="card">
-      <h3>Инжиниринговые и EPC проекты</h3>
-      <p>Помощь проектным командам — разработка ТЗ, выбор КИП, стратегии управления, готовность к пуску и наладке.</p>
+      <h3>Проектирование и EPC проекты</h3>
+      <p>We assist engineering contractors and project teams with design-phase support, instrumentation scope development, control strategies, and readiness for commissioning and startup.
+      Мы помогаем проектным командам на этапе проектирования — от проработки проекта, разработки объёма КИП и стратегий управления до подготовки к пуско-наладке и вводу в эксплуатацию.</p>
     </div>
   </div>
 </section>
 
+
 <section id="contact">
-  <h2>Контакты</h2>
+  <h2>Напишите нам</h2>
   <div class="contact">
     <form action="https://formspree.io/f/meozgjvy" method="POST" id="contact-form">
       <div style="max-width: 400px; margin: auto; text-align: left;">
         <label for="name">Ваше имя:</label><br>
-        <input type="text" id="name" name="name" required><br>
+        <input type="text" id="name" name="name" required style="width: 100%; padding: 10px; margin: 8px 0 20px 0; border: 1px solid #ccc; border-radius: 6px;"><br>
 
-        <label for="email">Ваш email:</label><br>
-        <input type="email" id="email" name="email" required><br>
+        <label for="email">Ваш Email:</label><br>
+        <input type="email" id="email" name="email" required style="width: 100%; padding: 10px; margin: 8px 0 20px 0; border: 1px solid #ccc; border-radius: 6px;"><br>
 
-        <label for="message">Ваше сообщение:</label><br>
-        <textarea id="message" name="message" rows="5" required></textarea><br><br>
+        <label for="message">Ваше Сообщениe:</label><br>
+        <textarea id="message" name="message" rows="5" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; resize: vertical;"></textarea><br><br>
 
+        <!-- Honeypot -->
         <input type="text" name="_gotcha" style="display:none">
 
+        <!-- Thank you message -->
         <div id="form-status" style="display:none; color: green; font-weight: bold; margin-top: 10px;">
-          Спасибо! Ваше сообщение отправлено.
+          Спасибо! Ваше сообщение было отправлено.
         </div>
 
-        <button type="submit">Отправить</button>
+        <button type="submit" style="padding: 10px 20px; background-color: #003366; color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer;">
+          Отправить
+        </button>
       </div>
     </form>
   </div>
 </section>
+
 
 <script>
   const form = document.getElementById("contact-form");
@@ -287,6 +338,7 @@
     }
   });
 </script>
+
 
 <footer>
   &copy; 2025 Alatau Tech Consulting. Все права защищены.<br>
