@@ -2,41 +2,46 @@
 <html lang="en">
 <head>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      function getCookie(name) {
-        const value = `; ${document.cookie}`;
-        const parts = value.split(`; ${name}=`);
-        if (parts.length === 2) return parts.pop().split(';').shift();
-      }
+  (function() {
+    function getCookie(name) {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) return parts.pop().split(';').shift();
+    }
 
-      function setCookie(name, value, days) {
-        let expires = "";
-        if (days) {
-          const date = new Date();
-          date.setTime(date.getTime() + (days*24*60*60*1000));
-          expires = "; expires=" + date.toUTCString();
-        }
-        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    function setCookie(name, value, days) {
+      let expires = "";
+      if (days) {
+        const date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
       }
+      document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    }
 
-      const userLang = navigator.language || navigator.userLanguage;
-      const langPref = getCookie('langPref');
+    const userLang = navigator.language || navigator.userLanguage;
+    const langPref = getCookie('langPref');
 
-      if (!langPref) {
-        if (userLang.startsWith('ru')) {
-          setCookie('langPref', 'ru', 30);
-          window.location.href = 'index-ru.html';
-        } else if (userLang.startsWith('kk')) {
-          setCookie('langPref', 'kk', 30);
-          window.location.href = 'index-kz.html';
-        }
+    if (!langPref) {
+      if (userLang.startsWith('ru')) {
+        setCookie('langPref', 'ru', 30);
+        window.location.replace('index-ru.html');
+      } else if (userLang.startsWith('kk')) {
+        setCookie('langPref', 'kk', 30);
+        window.location.replace('index-kz.html');
       }
-    });
-  </script>
+    }
+  })();
+</script>
+
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ATP Consulting</title>
+  <title>Alatau Tech Consulting</title>
+  <!-- ✅ SEO Tags -->
+  <meta name="description" content="Alatau Tech Consulting - мұнай-газ және қайта өңдеу салалары үшін процесті оңтайландыру, басқару, аспаптандыру және цифрлық трансформация бойынша сараптамалық қызметтер ұсынады.">
+  <meta name="keywords" content="процесс инженериясы, аудит, басқару жүйелері, бақылау, аспаптар, инженерлік консалтинг, мұнай, газ, СЕР, амин, цифрлық трансформация, Қазақстан, ТМД, Ресей, Өзбекстан, Әзірбайжан, Alatau Tech, сарапшылар">
+  <meta name="author" content="Alatau Tech Consulting">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
@@ -187,15 +192,22 @@
 <body>
 
 <div class="language-bar">
-  <a href="index.html"><img src="flags/gb.png" alt="EN" style="height:16px; vertical-align:middle;"> EN</a> |
-  <a href="index-ru.html"><img src="flags/ru.png" alt="RU" style="height:16px; vertical-align:middle;"> RU</a> |
-  <a href="index-kz.html"><img src="flags/kz.png" alt="KZ" style="height:16px; vertical-align:middle;"> KZ</a>
+  <a href="index-kz.html" onclick="document.cookie='langPref=kk; path=/';">
+    <img src="flags/kz.png" alt="KZ" style="height:16px; vertical-align:middle;"> KZ
+  </a> |
+  <a href="index.html" onclick="document.cookie='langPref=en; path=/';">
+    <img src="flags/gb.png" alt="EN" style="height:16px; vertical-align:middle;"> EN
+  </a> |
+  <a href="index-ru.html" onclick="document.cookie='langPref=ru; path=/';">
+    <img src="flags/ru.png" alt="RU" style="height:16px; vertical-align:middle;"> RU
+  </a>
 </div>
 
+
 <nav>
-  <div><a href="#top">ATP Consulting</a></div>
+  <div><a href="#top">Alatau Tech Consulting</a></div>
   <div>
-    <a href="#about">Бiз туралы</a>
+    <a href="#about">Біз туралы</a>
     <a href="#services">Қызметтер</a>
     <a href="#industries">Салалар</a>
     <a href="#contact">Байланыс</a>
@@ -204,8 +216,9 @@
 
 <header id="top">
   <div class="hero-text">
-    <h1>Зауыттың өнімділігін 5%-ға дейін арттырыңыз</h1>
-    <p>Біз жабдықтың жұмысын және басқару стратегияларын оңтайландыру арқылы сіздің пайдаңызды арттырып, сенімділікті күшейтіп, шығарындыларды азайтамыз.</p>
+    <h1>Инженерлік сараптама арқылы өндірісті арттырыңыз және OPEX төмендетіңіз</h1>
+    <p>Біз нақты өндірістік нысандардан алынған тәжірибеге сүйене отырып, технологиялық қондырғыларды, басқару жүйелерін және аспаптардың тиімділігін оңтайландырамыз. Бұл өндірістік шығындар мен шығарындыларды азайтуға, ал өнімділік пен тұрақтылықты арттыруға көмектеседі.
+</p>
   </div>
   <div class="hero-image">
     <img src="joshua-sun-5OIaZyOiN7E-unsplash.jpg" alt="Plant Optimization">
@@ -213,43 +226,125 @@
 </header>
 
 <section id="about">
-  <h2>Бiз туралы</h2>
+  <h2>Біз туралы</h2>
   <p style="text-align:center; max-width:700px; margin:auto;">
-    ATP Consulting — процестер, процесс бақылауы және аспаптық инженерия саласындағы әлемдік деңгейдегі мамандар тобы.<br><br>
-    Біз жабдықтың оңтайлы жағдайда жұмыс істеуін қамтамасыз етеміз. Бұл тұрақты жұмысқа, өндірістің артуына және шығарындылардың азаюына алып келеді.
-    Біз жұмыс істеп тұрған қондырғылар мен жобалау кезеңінде кеңес беру қызметтерін ұсынамыз.<br><br>
-    Біздің команда әр жобада инженерлік дәлдікті қамтамасыз етеді.
+    Alatau Tech Consulting — теориялық білім мен өндірістік тәжірибесі мол жоғары деңгейдегі мамандар тобы. <br><br>
+    Біз жұмыс істеп тұрған зауыттар мен жобалау сатысындағы жобаларға қолдау көрсетеміз — жабдықтар мен басқару жүйелері ең жақсы жағдайда жобаланып, іске қосылуын қамтамасыз етеміз. <br><br>
+    Бұл тұрақты жұмысқа, өнімділіктің артуына, шығарындылардың азаюына және операциялық шығындардың төмендеуіне алып келеді. <br><br>
+    Командамыз әр жобаға инженерлік дәлдікпен қарайды.
   </p>
 </section>
 
 <section id="services">
-  <h2>Бiздiң қызметтер</h2>
+  <h2>Біздің қызметтер</h2>
+
   <div class="services">
-    <div class="card">Колонна қондырғыларының жұмысы</div>
-    <div class="card">Күкірт өндіру қондырғыларының жұмысы</div>
-    <div class="card">Басқару жүйелерін оңтайландыру</div>
-    <div class="card">Аспаптық аудиттер</div>
+    <div class="card">
+      <h3>Технологиялық процесстер аудиті және тар орындарды жою</h3>
+      <p>We identify capacity limits, energy losses, and inefficiencies through targeted audits. Our team has experience resolving bottlenecks in distillation columns, SRU systems, and amine units — improving throughput and stability without major capex. This approach is applicable across a wide range of plant units and configurations.
+      Мүмкіндіктер шегін, энергия шығындарын және тиімділіктің төмендігін анықтаймыз. Командамыз ректификациялық колонналарда, күкіртті кетіру қондырғыларында және аминдік тазалау жүйелерде өнімділікті арттыру тәжірибесі бар.</p>
+    </div>
+
+    <div class="card">
+      <h3>Басқару жүйесін оңтайландыру</h3>
+      <p>Реттеу стратегияларын жүйенің өзгермелілігін азайту және жауап беру жылдамдығын оңтайландырамыз. Бұл жұмысты пештерді, ректификациялық колонналарды немесе қысымға сезімтал жүйелерді басқаруды жетілдіруді қамтиды. Қарапайым PID-тен бастап күрделі логикаға дейін — біз сіздің басқару платформаларыңыз бен технологиялық талаптарыңызға бейімделеміз.</p>
+    </div>
+
+    <div class="card">
+      <h3>Аспап диагностикасы</h3>
+      <p>Датчиктердің дәлдігін, сигналдағы шуды және орнату мәселелерін бағалаймыз — олар зауыттың жұмысына әсер етеді. Колонналарда, жылу алмастырғыштарда немесе резервуарлық жүйелерде деңгей мен шығынды өлшеудің сенімсіздігі жатады. Барлық КИП құралдарымен жұмыс істейміз — басқару жүйесі процесте шынымен не болып жатқанын көре алуы үшін.</p>
+    </div>
+
+    <div class="card">
+      <h3>Цифрлық трансформация стратегиясы</h3>
+      <p>Дерек дайындығын бағалап, нақты цифрлық жол картасын жасаймыз. Аналитикадан бастап цифрлық егіздерге дейін — шын мәнінде қандай шешімдер тиімді әрі мүмкін екенін анықтауға көмектесеміз. Ешқандай бос ұрандар емес — тек инженерлік тәжірибеге негізделген нәтижелер.</p>
+    </div>
   </div>
 </section>
 
+
 <section id="industries">
-  <h2>Қызмет көрсететін салалар</h2>
+  <h2>Біз жұмыс істейтін салалар</h2>
   <div class="industries">
-    <div class="card">Мұнай және газ</div>
-    <div class="card">Мұнай химиясы</div>
-    <div class="card">Utilities</div>
+    <div class="card">
+      <h3>Мұнай және газ</h3>
+      <p>Кен орны мен өңдеу секторларындағы процестерді қолдаймыз — газды дайындау қондырғылары, стабилизаторлар және ШФЛУ өндіру жүйелері. Біздің назарымыз — өткізу қабілетін арттыру, басқару тиімділігі және технологиялық қауіпсіздік.</p>
+    </div>
+
+    <div class="card">
+      <h3>Мұнайды қайта өңдеу және газды өңдеу</h3>
+      <p>Тәжірибемізге күкірт өндіру қондырғылары, амин жүйелері, ректификациялық колонналар және оларға қатысты инфрақұрылым кіреді. Қондырғылардың жұмысын оңтайландырып, тұрақтылығын арттыруға және энергия тұтынуын азайтуға көмектесеміз</p>
+    </div>
+
+    <div class="card">
+      <h3>Инжиниринг және EPC жобалары</h3>
+      <p>Жобалау кезеңінде инжинирингтік мердігерлер мен жобалық командаларға қолдау көрсетеміз — жобаны пысықтау, КИП көлемін анықтаудан бастап басқару стратегияларын әзірлеу мен іске қосуға дайындығына дейін.</p>
+    </div>
   </div>
 </section>
+
 
 <section id="contact">
   <h2>Байланыс</h2>
   <div class="contact">
-    <p>Email: <a href="mailto:info@atpconsulting.com">info@atpconsulting.com</a></p>
+    <form action="https://formspree.io/f/meozgjvy" method="POST" id="contact-form">
+      <div style="max-width: 400px; margin: auto; text-align: left;">
+        <label for="name">Атыңыз:</label><br>
+        <input type="text" id="name" name="name" required style="width: 100%; padding: 10px; margin: 8px 0 20px 0; border: 1px solid #ccc; border-radius: 6px;"><br>
+
+        <label for="email">Электрондық пошта:</label><br>
+        <input type="email" id="email" name="email" required style="width: 100%; padding: 10px; margin: 8px 0 20px 0; border: 1px solid #ccc; border-radius: 6px;"><br>
+
+        <label for="message">Хабарыңыз:</label><br>
+        <textarea id="message" name="message" rows="5" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; resize: vertical;"></textarea><br><br>
+
+        <!-- Honeypot -->
+        <input type="text" name="_gotcha" style="display:none">
+
+        <!-- Thank you message -->
+        <div id="form-status" style="display:none; color: green; font-weight: bold; margin-top: 10px;">
+          Рақмет! Хабарламаңыз жіберілді.
+        </div>
+
+        <button type="submit" style="padding: 10px 20px; background-color: #003366; color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer;">
+          Жіберу
+        </button>
+      </div>
+    </form>
   </div>
 </section>
 
+
+<script>
+  const form = document.getElementById("contact-form");
+  const status = document.getElementById("form-status");
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    const data = new FormData(form);
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: data,
+      headers: {
+        Accept: "application/json",
+      },
+    });
+
+    if (response.ok) {
+      form.reset();
+      status.style.display = "block";
+    } else {
+      alert("Қате! Хабарлама жіберілмеді.");
+    }
+  });
+</script>
+
+
 <footer>
-  &copy; 2025 ATP Consulting. Барлық құқықтар қорғалған..
+  &copy; 2025 Alatau Tech Consulting. Барлық құқықтар қорғалған.<br>
+  <div style="font-size: 0.9rem; margin-top: 0.5rem;">
+    Алматы, Қазақстан
+  </div>
 </footer>
 
 </body>
